@@ -12,19 +12,37 @@ Original file is located at
 """
 
 from re import sub
-num1 = int(input("Digite o primeiro número: "))
-num2 = int(input("Digite o segundo número: "))
 
-soma = num1 + num2
-subtracao = num1 - num2
-multiplicacao = num1 * num2
-divisao = num1 / num2
+print("-------------------------------------------------")
+print("------------------ Olá, mundo! ------------------")
+print("-------------------------------------------------")
+print("Bem-vindo(a) a minha primeira calculadora Python")
+print("Ela é bem simples, mas espero que goste :D")
+print("Você irá informar dois números e logo em seguida")
+print("escolher algumas opções aritméticas disponíveis")
+print("-------------------------------------------------")
+
+##Bloco para identificar se os campos input's são números válidos
+while True:
+    try:
+        num1 = int(input("Digite o primeiro número: "))
+        break
+    except ValueError:
+        print("Erro! Digite apenas números.")
+while True:
+    try:
+        num2 = int(input("Digite o segundo número: "))
+        break
+    except ValueError:
+        print("Erro! Digite apenas números.")
+
+##Declaração de variáveis
 pnum1 = num1 / 100
 pnum2 = num2 / 100
 porcentagem1 = num1 / pnum2
 porcentagem2 = num2 / pnum1
 
-
+##Bloco de mensagens de inicialização da calculadora
 print("-------------------------")
 print("Muito bem, agora temos o valor " , num1)
 print("E também o valor" , num2)
@@ -39,43 +57,62 @@ print("6 - Porcentagem do valor 2 sobre o valor 1(%)")
 print("0 - Encerrar aplicação(X)")
 print("-------------------------")
 
-opcao = int(input("Digite o número da opção desejada: "))
-print("-------------------------")
+##Bloco para identificar se a opção escolhida é um número inteiro
+while True:
+    try:
+        opcao = int(input("Digite a opção desejada: "))
+        if opcao >= 0 and opcao <= 6:
+            break
+        else:
+            print("Opção inválida!")
+    except ValueError:
+        print("Erro! Digite apenas números.")
 
-if opcao == 0:
-  print("Aplicação encerrada!")
-if opcao == 1:
-  print("A opção escolhida foi a: (",opcao,") Adição(+)")
-  print("Resultado: ",num1," + ",num2," = ",soma)
-  opcao = int(input("Digite o número da opção desejada: "))
-  print("-------------------------")
-if opcao == 2:
-  print("A opção escolhida foi a: (",opcao,") Subtração(-)")
-  print("Resultado: ",num1," - ",num2," = ",subtracao)
-  opcao = int(input("Digite o número da opção desejada: "))
-  print("-------------------------")
-if opcao == 3:
-  print("A opção escolhida foi a: (",opcao,") Multiplicação(*)")
-  print("Resultado: ",num1," * ",num2," = ",multiplicacao)
-  opcao = int(input("Digite o número da opção desejada: "))
-  print("-------------------------")
-if opcao == 4:
-  print("A opção escolhida foi a: (",opcao,") Divisão(/)")
-  print("Resultado: ",num1," / ",num2," = ",divisao)
-  opcao = int(input("Digite o número da opção desejada: "))
-  print("-------------------------")
-if opcao == 5:
-  print("A opção escolhida foi a: (",opcao,") Porcentagem do valor 1 sobre o valor 2(%)")
-  print("Resultado: O valor ",num1," representa ",porcentagem1,"% de ",num2)
-  opcao = int(input("Digite o número da opção desejada: "))
-  print("-------------------------")
-if opcao == 6:
-  print("A opção escolhida foi a: (",opcao,") Porcentagem do valor 2 sobre o valor 1(%)")
-  print("Resultado: O valor ",num2," representa ",porcentagem2,"% de ",num1)
-  opcao = int(input("Digite o número da opção desejada: "))
-  print("-------------------------")
-if opcao > 6:
-  print("Opção inválida!")
-  opcao = int(input("Digite o número da opção desejada: "))
-  print("-------------------------")
+##Bloco de ação da calculadora
+while opcao >= 0 and opcao <=6:
+  
+  if opcao == 1:
+    print("A opção escolhida foi a: (",opcao,") Adição(+)")
+    print("Resultado: ",num1," + ",num2," = ",num1 + num2)
+    opcao = int(input("Agora escolha outra opção desejada: "))
+    print("-------------------------")
+
+  elif opcao == 2:
+    print("A opção escolhida foi a: (",opcao,") Subtração(-)")
+    print("Resultado: ",num1," - ",num2," = ",num1 - num2)
+    opcao = int(input("Digite o número da opção desejada: "))
+    print("-------------------------")
+  
+  elif opcao == 3:
+    print("A opção escolhida foi a: (",opcao,") Multiplicação(*)")
+    print("Resultado: ",num1," * ",num2," = ",num1 * num2)
+    opcao = int(input("Agora escolha outra opção desejada: "))
+    print("-------------------------")
+  
+  elif opcao == 4:
+    print("A opção escolhida foi a: (",opcao,") Divisão(/)")
+    print("Resultado: ",num1," / ",num2," = ",num1 / num2)
+    opcao = int(input("Agora escolha outra opção desejada: "))
+    print("-------------------------")
+  
+  elif opcao == 5:
+    print("A opção escolhida foi a: (",opcao,") Porcentagem do valor 1 sobre o valor 2(%)")
+    print("Resultado: O valor ",num1," representa ",porcentagem1,"% de ",num2)
+    opcao = int(input("Agora escolha outra opção desejada: "))
+    print("-------------------------")
+  
+  elif opcao == 6:
+    print("A opção escolhida foi a: (",opcao,") Porcentagem do valor 2 sobre o valor 1(%)")
+    print("Resultado: O valor ",num2," representa ",porcentagem2,"% de ",num1)
+    opcao = int(input("Agora escolha outra opção desejada: "))
+    print("-------------------------")
+  
+  elif opcao == 0:
+    print("Aplicação encerrada!")
+    exit()
+
+  elif opcao > 6:
+    print("Opção inválida!")
+    opcao = int(input("Digite a opção desejada"))
+    print("-------------------------")
 
