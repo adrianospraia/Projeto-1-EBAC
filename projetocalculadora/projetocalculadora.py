@@ -57,62 +57,63 @@ print("6 - Porcentagem do valor 2 sobre o valor 1(%)")
 print("0 - Encerrar aplicação(X)")
 print("-------------------------")
 
-##Bloco para identificar se a opção escolhida é um número inteiro
 while True:
-    try:
-        opcao = int(input("Digite a opção desejada: "))
-        if opcao >= 0 and opcao <= 6:
-            break
-        else:
-            print("Opção inválida!")
-    except ValueError:
-        print("Erro! Digite apenas números.")
+    ##Bloco para identificar se a opção escolhida é um número inteiro
+    entrada = input("Escolha a opção desejada: ")
+    if not entrada.isdigit():
+        print("-------------------------")
+        print("ERRO: Por favor, informe APENAS números entre 0 e 6.")
+        print("-------------------------")
+        continue
+    opcao = int(entrada)
+    if opcao < 0 or opcao > 6:
+        print("-------------------------")
+        print("Opção inválida! Informe APENAS números entre 0 a 6.")
+        print("-------------------------")
+        continue
+    ##Bloco de ação da calculadora
+    if opcao == 1:
+      print("A opção escolhida foi a: (",opcao,") Adição(+)")
+      print("Resultado: ",num1," + ",num2," = ",num1 + num2)
+      print("-------------------------")
+      
+    elif opcao == 2:
+      print("A opção escolhida foi a: (",opcao,") Subtração(-)")
+      print("Resultado: ",num1," - ",num2," = ",num1 - num2)
+      print("-------------------------")
+      
+    elif opcao == 3:
+      print("A opção escolhida foi a: (",opcao,") Multiplicação(*)")
+      print("Resultado: ",num1," * ",num2," = ",num1 * num2)
+      print("-------------------------")
+  
+    elif opcao == 4:
+      print("A opção escolhida foi a: (",opcao,") Divisão(/)")
+      if num2 != 0:
+        print("Resultado: ",num1," / ",num2," = ",num1 / num2)
+      else:
+            print("Erro: Divisão por zero não é permitida.")
+      print("-------------------------")
+  
+    elif opcao == 5:
+      print("A opção escolhida foi a: (",opcao,") Porcentagem do valor 1 sobre o valor 2(%)")
+      print("Resultado: O valor ",num1," representa ",porcentagem1,"% de ",num2)
+      print("-------------------------")
+  
+    elif opcao == 6:
+      print("A opção escolhida foi a: (",opcao,") Porcentagem do valor 2 sobre o valor 1(%)")
+      print("Resultado: O valor ",num2," representa ",porcentagem2,"% de ",num1)
+      print("-------------------------")
+  
+    elif opcao == 0:
+      print("Aplicação encerrada!")
+      exit()
 
-##Bloco de ação da calculadora
-while opcao >= 0 and opcao <=6:
-  
-  if opcao == 1:
-    print("A opção escolhida foi a: (",opcao,") Adição(+)")
-    print("Resultado: ",num1," + ",num2," = ",num1 + num2)
-    opcao = int(input("Agora escolha outra opção desejada: "))
-    print("-------------------------")
+    elif opcao > 6 or opcao < 0:
+      print("Opção inválida!")
+      print("-------------------------")
 
-  elif opcao == 2:
-    print("A opção escolhida foi a: (",opcao,") Subtração(-)")
-    print("Resultado: ",num1," - ",num2," = ",num1 - num2)
-    opcao = int(input("Digite o número da opção desejada: "))
-    print("-------------------------")
   
-  elif opcao == 3:
-    print("A opção escolhida foi a: (",opcao,") Multiplicação(*)")
-    print("Resultado: ",num1," * ",num2," = ",num1 * num2)
-    opcao = int(input("Agora escolha outra opção desejada: "))
-    print("-------------------------")
   
-  elif opcao == 4:
-    print("A opção escolhida foi a: (",opcao,") Divisão(/)")
-    print("Resultado: ",num1," / ",num2," = ",num1 / num2)
-    opcao = int(input("Agora escolha outra opção desejada: "))
-    print("-------------------------")
-  
-  elif opcao == 5:
-    print("A opção escolhida foi a: (",opcao,") Porcentagem do valor 1 sobre o valor 2(%)")
-    print("Resultado: O valor ",num1," representa ",porcentagem1,"% de ",num2)
-    opcao = int(input("Agora escolha outra opção desejada: "))
-    print("-------------------------")
-  
-  elif opcao == 6:
-    print("A opção escolhida foi a: (",opcao,") Porcentagem do valor 2 sobre o valor 1(%)")
-    print("Resultado: O valor ",num2," representa ",porcentagem2,"% de ",num1)
-    opcao = int(input("Agora escolha outra opção desejada: "))
-    print("-------------------------")
-  
-  elif opcao == 0:
-    print("Aplicação encerrada!")
-    exit()
 
-  elif opcao > 6:
-    print("Opção inválida!")
-    opcao = int(input("Digite a opção desejada"))
-    print("-------------------------")
 
